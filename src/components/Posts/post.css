@@ -1,0 +1,44 @@
+.html {
+    display: inline-block;
+    text-align: center;
+    background-color: red;
+    color: white;
+    padding: 0.13rem;
+    border-radius: 5px;
+    font-size: 12px;
+    width: 50px;
+}
+
+.css {
+    display: inline-block;
+    text-align: center;
+    background-color: tomato;
+    color: white;
+    padding: 0.13rem;
+    border-radius: 5px;
+    font-size: 12px;
+    width: 50px;
+}
+
+.javascript {
+    display: inline-block;
+    text-align: center;
+    background-color: #efd81d;
+    padding: 0.13rem;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    width: max-content;
+}
+
+.react {
+    margin: 0.2rem;
+    display: inline-block;
+    text-align: center;
+    background-color: blue;
+    padding: 0.13rem;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    width: 50px;
+}
