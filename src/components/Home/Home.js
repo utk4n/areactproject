@@ -21,7 +21,7 @@ const Home = () => {
 
   const products = useFirebaseListener();
   const dispatch = useDispatch();
-console.log(products)
+  console.log(products);
   const {
     notifySuccess,
     notifyRemove,
@@ -47,10 +47,15 @@ console.log(products)
     }
   };
 
-  const addNewPost = () => {
-    if (newPostTitle !== "" && newPostDesc !== "" && categoryName.length >= 1) {
-      notifySuccess();
+  const verified =
+    newPostTitle !== "" &&
+    newPostTitle.length < 31 &&
+    newPostDesc !== "" &&
+    categoryName.length >= 1;
 
+  const addNewPost = () => {
+    if (verified) {
+      notifySuccess();
       dispatch(
         addFBDoc({
           title: newPostTitle,
@@ -66,7 +71,6 @@ console.log(products)
     }
   };
 
-
   return (
     <Container maxWidth="lg">
       <ToastContainer />
@@ -74,9 +78,13 @@ console.log(products)
         <Box display={"flex"} alignContent="center" justifyContent={"center"}>
           <TextField
             // sx={{ minWidth: "300px" }}
-            label="Add new post title..."
+            error={newPostTitle.length >= 31}
+            label={`Add new post title... Max ${
+              30 - newPostTitle.length
+            } Characters.`}
             margin="normal"
             required
+            fullWidth
             value={newPostTitle}
             onChange={(e) => setNewPostTitle(e.target.value)}
           />
@@ -95,7 +103,7 @@ console.log(products)
           multiline
           rows={4}
           value={newPostDesc}
-          error={newPostDesc.length >= 140}
+          error={newPostDesc.length >= 141}
           onChange={(e) => setNewPostDesc(e.target.value)}
         />
 
@@ -104,7 +112,7 @@ console.log(products)
           fullWidth
           sx={{ mt: 2 }}
           onClick={addNewPost}
-          disabled={newPostDesc.length >= 140}
+          disabled={!verified}
         >
           {newPostDesc.length >= 140
             ? "Max Limit 140 Characters!"
