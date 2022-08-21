@@ -21,7 +21,7 @@ const Home = () => {
 
   const products = useFirebaseListener();
   const dispatch = useDispatch();
-
+console.log(products)
   const {
     notifySuccess,
     notifyRemove,
@@ -66,11 +66,7 @@ const Home = () => {
     }
   };
 
-  // useEffect(() => {
-  //   if (newPostDesc.length === 140) {
-  //   }
-  //   console.log(newPostDesc);
-  // }, [newPostDesc]);
+
   return (
     <Container maxWidth="lg">
       <ToastContainer />

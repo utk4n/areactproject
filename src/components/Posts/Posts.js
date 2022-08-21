@@ -23,7 +23,8 @@ const Posts = ({ favBtn, setFavBtn, addMyFavBasket, removeDoc, ...post }) => {
     <Box maxWidth="md">
       <Card className="grid_cards">
         <CardContent className="card_content">
-          <Typography
+         <Box display={'flex'} alignItems='center' justifyContent={'space-between'}>
+         <Typography
             gutterBottom
             variant="h6"
             sx={{ fontWeight: "700" }}
@@ -31,7 +32,10 @@ const Posts = ({ favBtn, setFavBtn, addMyFavBasket, removeDoc, ...post }) => {
           >
             {post.title}
           </Typography>
+          <Typography variant="body2" fontSize={12} color="text.secondary">posted by {post.email}</Typography>
+         </Box>
           <Typography variant="body2">{post.description}</Typography>
+
           <Box className="category_row">
             {post.category.map((el) => (
               <span

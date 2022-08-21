@@ -32,7 +32,6 @@ const FavPage = () => {
     notifyError();
   };
 
-  console.log(myFav);
   return (
     <Container maxWidth="md" className="fav_container">
       <ToastContainer />

@@ -24,11 +24,13 @@ export const productsSlice = createSlice({
     },
     addFBDoc: (state, action) => {
       const uid = auth.currentUser?.uid;
+      const email = auth.currentUser?.email
       if (!uid) return;
       addDoc(productsRef, {
         title: action.payload?.title,
         description: action.payload.description,
         category: action.payload.category,
+        email,
         uid,
       });
     },
