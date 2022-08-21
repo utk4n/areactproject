@@ -1,3 +1,7 @@
+* {
+  text-decoration: none;
+}
+
 .App {
   background-color: #eeeef0;
 }
@@ -10,48 +14,49 @@ html {
   text-align: center;
   background-color: red;
   color: white;
-  padding: 0.13rem;
+  padding: 0.3rem;
+  font-weight: 600;
   border-radius: 5px;
   font-size: 12px;
   width: 3.125rem;
-  margin-right: 0.2rem;
-  margin-top: 0.2rem;
+  cursor: pointer;
 }
 
 .css {
   text-align: center;
-  background-color: tomato;
+  background-color: #2862e8;
   color: white;
-  padding: 0.13rem;
+  padding: 0.3rem;
+  font-weight: 600;
   border-radius: 5px;
   font-size: 12px;
   width: 3.125rem;
-  margin-right: 0.2rem;
-  margin-top: 0.2rem;
+  cursor: pointer;
 }
 
 .javascript {
   text-align: center;
   background-color: #efd81d;
-  padding: 0.13rem;
+  padding: 0.3rem;
+  font-weight: 600;
   color: white;
   border-radius: 5px;
   font-size: 12px;
   width: max-content;
-  margin-right: 0.2rem;
-  margin-top: 0.2rem;
+
+  cursor: pointer;
 }
 
 .react {
-  margin-right: 0.2rem;
-  margin-top: 0.2rem;
   text-align: center;
   background-color: blue;
-  padding: 0.13rem;
+  padding: 0.3rem;
+  font-weight: 600;
   color: white;
   border-radius: 5px;
   font-size: 12px;
   width: 3.125rem;
+  cursor: pointer;
 }
 
 .grid {
@@ -86,6 +91,16 @@ html {
 .category_row {
   display: flex;
   justify-content: flex-end;
+}
+
+.fav_container {
+  margin-top: 5rem;
+  grid-template-columns: repeat(3, 200px);
+}
+
+.fav_cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media only screen and (max-width: 700px) {

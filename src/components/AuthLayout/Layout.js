@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -17,11 +17,16 @@ import {
   DialogActions,
   Button,
   DialogContentText,
+  Badge,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
+
+import { useDispatch, useSelector } from "react-redux";
 import { signout } from "../../redux/features/authSlice";
 import AccountBoxRounded from "@mui/icons-material/AccountBoxRounded";
-
+import FavoriteIcon from "@mui/icons-material/FavoriteOutlined";
+import { styled } from "@mui/material/styles";
+import useNotify from "../../hooks/useNotify";
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(null);
   const [dialogueIsOpen, setDialogueIsOpen] = useState(false);
@@ -29,9 +34,11 @@ const Layout = () => {
   const currentUser = useCurrentUser();
   const isLoggedIn = useIsLoggedIn();
   const dispatch = useDispatch();
+  const { notifyLogin } = useNotify();
+  const myFav = useSelector((state) => state.products.myFav).length;
 
   if (isLoggedIn === null) {
-    return <h1>Loading...</h1>;
+    return notifyLogin();
   } else if (!isLoggedIn) {
     return <Navigate replace to="/signin" />;
   }
@@ -39,12 +46,31 @@ const Layout = () => {
   const signOutBtn = () => {
     dispatch(signout());
   };
-
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 4px",
+    },
+  }));
   return (
     <>
-      <AppBar >
-        <Toolbar  sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="h4">Home</Typography>
+      <AppBar>
+        <ToastContainer />
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Link to={"/"}>
+            <Typography variant="h4" color={"white"}>
+              Home
+            </Typography>
+          </Link>
+          <Link to={"/myFavPage"}>
+            <StyledBadge badgeContent={myFav} color="error">
+              <IconButton size="large">
+                <FavoriteIcon size="large" color="error" />
+              </IconButton>
+            </StyledBadge>
+          </Link>
           <IconButton
             size="large"
             sx={{ color: "white" }}
@@ -85,7 +111,7 @@ const Layout = () => {
           <Box display="flex" alignItems={"center"}>
             <Avatar />
             <Box ml={3}>
-              <Typography>Display Name:</Typography>
+              <Typography>Display Name:{currentUser.displayName}</Typography>
               <Typography>{currentUser.email}</Typography>
             </Box>
           </Box>
@@ -116,9 +142,10 @@ const Layout = () => {
                 Yes
               </Button>
               <Button
-              variant="contained"
-              color="success"
-               onClick={() => setConfirmSignOut((prev) => !prev)}>
+                variant="contained"
+                color="success"
+                onClick={() => setConfirmSignOut((prev) => !prev)}
+              >
                 Cancel
               </Button>
             </DialogActions>
