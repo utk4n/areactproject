@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  getFirestore,
   collection,
-  onSnapshot,
   deleteDoc,
   doc,
   addDoc,
@@ -15,7 +13,7 @@ const initialState = {
     name: "",
     title: "",
     desc: "",
-    category: null
+    category: null,
   },
   havePost: [],
 };
@@ -32,9 +30,10 @@ export const productsSlice = createSlice({
     addFBDoc: (state, action) => {
       const uid = auth.currentUser?.uid;
       if (!uid) return;
+
       addDoc(productsRef, {
         title: action.payload.title,
-        description : action.payload.description,
+        description: action.payload.description,
         category: action.payload.category,
         uid,
       });
@@ -43,4 +42,4 @@ export const productsSlice = createSlice({
 });
 
 export default productsSlice.reducer;
-export const { deleteFBDoc,addFBDoc } = productsSlice.actions;
+export const { deleteFBDoc, addFBDoc } = productsSlice.actions;

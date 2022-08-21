@@ -6,9 +6,6 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-import { useState } from "react";
-import { useDispatch } from "react-redux/es/exports";
-import { addFBDoc } from "../../redux/features/productsSlice";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -22,7 +19,6 @@ const MenuProps = {
 };
 
 const SelectOption = ({ categoryName, setCategoryName }) => {
-  const dispatch = useDispatch();
 
   const categories = ["HTML", "CSS", "Javascript", "ReactJs"];
 
@@ -31,15 +27,14 @@ const SelectOption = ({ categoryName, setCategoryName }) => {
       target: { value },
     } = event;
     setCategoryName(typeof value === "string" ? value.split(",") : value);
-
   };
 
   return (
     <div>
-      <FormControl sx={{ width: 200 }} margin="normal">
+      <FormControl sx={{minWidth:"100px" ,width: "auto" }} margin="normal">
         <InputLabel>Tag</InputLabel>
         <Select
-          multiple
+          required
           value={categoryName}
           onChange={handleChange}
           input={<OutlinedInput label="Tag" />}
