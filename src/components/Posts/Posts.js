@@ -23,17 +23,23 @@ const Posts = ({ favBtn, setFavBtn, addMyFavBasket, removeDoc, ...post }) => {
     <Box maxWidth="md">
       <Card className="grid_cards">
         <CardContent className="card_content">
-         <Box display={'flex'} alignItems='center' justifyContent={'space-between'}>
-         <Typography
-            gutterBottom
-            variant="h6"
-            sx={{ fontWeight: "700" }}
-            color="text.secondary"
+          <Box
+            display={"flex"}
+            alignItems="center"
+            justifyContent={"space-between"}
           >
-            {post.title}
-          </Typography>
-          <Typography variant="body2" fontSize={12} color="text.secondary">posted by {post.email}</Typography>
-         </Box>
+            <Typography
+              gutterBottom
+              variant="h6"
+              sx={{ fontWeight: "700" }}
+              color="text.secondary"
+            >
+              {post.title}
+            </Typography>
+            <Typography variant="body2" fontSize={12} color="text.secondary">
+              {post.email}
+            </Typography>
+          </Box>
           <Typography variant="body2">{post.description}</Typography>
 
           <Box className="category_row">

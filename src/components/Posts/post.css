@@ -10,7 +10,7 @@ html {
   background-color: #eeeef0;
 }
 
-.html {
+.html,.HTML {
   text-align: center;
   background-color: red;
   color: white;
@@ -22,7 +22,7 @@ html {
   cursor: pointer;
 }
 
-.css {
+.css, .CSS {
   text-align: center;
   background-color: #2862e8;
   color: white;
@@ -34,7 +34,7 @@ html {
   cursor: pointer;
 }
 
-.javascript {
+.javascript, .Javascript {
   text-align: center;
   background-color: #efd81d;
   padding: 0.3rem;
@@ -47,7 +47,7 @@ html {
   cursor: pointer;
 }
 
-.react {
+.react, .ReactJs {
   text-align: center;
   background-color: blue;
   padding: 0.3rem;
@@ -81,19 +81,19 @@ html {
   min-height: 150px;
 }
 
-.grid_cards {
+/* .grid_cards {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 200px;
-}
+} */
 
 .category_row {
   display: flex;
   justify-content: flex-end;
 }
 
-.fav_container {
+/* .fav_container {
   margin-top: 5rem;
   grid-template-columns: repeat(3, 200px);
 }
@@ -101,10 +101,32 @@ html {
 .fav_cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+} */
+
+
+.page_container{
+  display: grid;
+  place-content: center;
+  margin-top: 5rem;
+  grid-template-columns: repeat(2, 50%);
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  border: 2px solid #d3d3d3cd;
+  padding: 1.2rem;
+  word-wrap: break-word;
+  border-radius: 10px;
+  background-color: #d3d3d3cd;
+  margin-bottom: 2rem;
+  margin-inline: auto;
 }
+
 
 @media only screen and (max-width: 700px) {
   .grid {
     grid-template-columns: 100%;
+  }
+  .page_container{
+    grid-template-columns: 100%;
+    margin-inline: 1rem;
   }
 }

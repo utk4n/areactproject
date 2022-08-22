@@ -1,7 +1,7 @@
 import SelectOption from "./Select";
 import Posts from "../Posts/Posts";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useFirebaseListener } from "../../firebase/firebaseConfigs";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Box, Button, TextField } from "@mui/material";
@@ -20,8 +20,8 @@ const Home = () => {
   const [categoryName, setCategoryName] = useState([]);
 
   const products = useFirebaseListener();
+
   const dispatch = useDispatch();
-  console.log(products);
   const {
     notifySuccess,
     notifyRemove,
@@ -47,9 +47,10 @@ const Home = () => {
     }
   };
 
+
   const verified =
     newPostTitle !== "" &&
-    newPostTitle.length < 31 &&
+    newPostTitle.length < 26 &&
     newPostDesc !== "" &&
     categoryName.length >= 1;
 
@@ -72,15 +73,17 @@ const Home = () => {
   };
 
   return (
-    <Container maxWidth="lg">
+    <>
+    <Container maxWidth="lg" >
       <ToastContainer />
       <Box component="form" sx={{ mt: 8 }}>
         <Box display={"flex"} alignContent="center" justifyContent={"center"}>
           <TextField
+          id="ref"
             // sx={{ minWidth: "300px" }}
-            error={newPostTitle.length >= 31}
+            error={newPostTitle.length >= 25}
             label={`Add new post title... Max ${
-              30 - newPostTitle.length
+              25 - newPostTitle.length
             } Characters.`}
             margin="normal"
             required
@@ -159,6 +162,15 @@ const Home = () => {
         ))}
       </div>
     </Container>
+    <Box display={'flex'}
+    alignItems='center'
+    justifyContent={'center'}
+   >
+        <Button variant='contained' color="success" sx={{width: "10rem", padding:"0.5rem", mb:"1rem"}} href="#">
+Go top
+        </Button>
+        </Box>
+    </>
   );
 };
 

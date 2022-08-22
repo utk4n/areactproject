@@ -47,12 +47,12 @@ export const useFirebaseListener = () => {
 //   deleteDoc(doc(db, "products", id));
 // };
 
-export const addFirebaseDoc = () => {
- const uid = auth.currentUser?.uid
- if(!uid) return;
-addDoc(productsRef, {
-  name : "Utkan",
-  age : 29,
-  uid
-})
-}
+// export const addFirebaseDoc = () => {
+//  const uid = auth.currentUser?.uid
+//  if(!uid) return;
+// addDoc(productsRef, {
+//   name : "Utkan",
+//   age : 29,
+//   uid
+// })
+// }
