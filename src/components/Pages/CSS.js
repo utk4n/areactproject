@@ -63,8 +63,8 @@ const navigate =  useNavigate()
   console.log(CSSFilter);
   return (
     <>
-    <Typography className="title_section" textAlign={'center'} mt={10} variant="h3">CSS Page</Typography>
-    <Box maxWidth="lg" sx={{ mt: "3rem" }} className="page_container">
+    <Box maxWidth="lg" sx={{ mt: "5rem" }} className="page_container">
+    <Typography className="title_section" textAlign={'center'} display={'flex'} alignItems='center' justifyContent={'center'} borderRadius={1.3} bgcolor={"#2862e8"} color={'white'} variant="h3">CSS Page</Typography>
       {CSSFilter &&
         CSSFilter.map((post) => (
           <Card className="grid_cards">
@@ -157,6 +157,7 @@ const navigate =  useNavigate()
        <Box display={'flex'}
        alignItems='center'
        justifyContent={'center'}
+       mb={5}
       >
            <Button variant='contained' color="success" sx={{width: "10rem", padding:"0.5rem"}} onClick={() => navigate("/")}>
    Go back

@@ -124,10 +124,6 @@ html {
   margin-inline: auto;
 }
 
-.title_section {
-  text-shadow: 1px 0 5px rgba(0, 0, 0, 0.807);
-  letter-spacing: 0.5rem;
-}
 
 @media only screen and (max-width: 700px) {
   .grid {

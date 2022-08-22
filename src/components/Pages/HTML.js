@@ -58,8 +58,9 @@ const HTML = () => {
   console.log(HTMLFilter);
   return (
     <>
-      <Typography className="title_section" textAlign={'center'} mt={10} variant="h3">HTML Page</Typography>
-    <Box maxWidth="lg" sx={{ mt: "3rem" }} className="page_container">
+      
+    <Box maxWidth="lg" sx={{ mt: "5rem" }} className="page_container">
+    <Typography className="title_section" display={'flex'} alignItems='center' color={'white'} justifyContent={'center'} borderRadius={1.3} bgcolor={"red"} textAlign={'center'} variant="h3">HTML Page</Typography>
       {HTMLFilter &&
         HTMLFilter.map((post) => (
           <Card className="grid_cards">
@@ -152,6 +153,7 @@ const HTML = () => {
     <Box display={'flex'}
     alignItems='center'
     justifyContent={'center'}
+    mb={5}
    >
         <Button variant='contained' color="success" sx={{width: "10rem", padding:"0.5rem"}} onClick={() => navigate("/")}>
 Go back

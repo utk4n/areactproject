@@ -11,9 +11,11 @@ import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 import { useSelector, useDispatch } from "react-redux";
 import {toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 const FavPage = () => {
   const myFav = useSelector((state) => state.products.myFav);
   const dispatch = useDispatch();
+  const navigate =  useNavigate()
 
   const notifyError = () =>
     toast.error("Unfavourited 🚨!", {
@@ -32,7 +34,9 @@ const FavPage = () => {
   };
 
   return (
+    <>
     <Box maxWidth="lg" sx={{ mt: "5rem" }} className="page_container">
+      <Typography className="title_section" textAlign={'center'} display={'flex'} alignItems='center' justifyContent={'center'} borderRadius={1.3} variant="h3" color={'white'} bgcolor={'red'} p={1}>Favorite Page💗</Typography>
       {myFav &&
         myFav.map((post) => (
           <Card className="grid_cards">
@@ -81,7 +85,20 @@ const FavPage = () => {
             </CardActions>
           </Card>
         ))}
+        
     </Box>
+
+    <Box display={'flex'}
+       alignItems='center'
+       justifyContent={'center'}
+       mb={5}
+      >
+           <Button variant='contained' color="success" sx={{width: "10rem", padding:"0.5rem"}} onClick={() => navigate("/")}>
+   Go back
+           </Button>
+   
+           </Box>
+    </>
   );
 };
 
