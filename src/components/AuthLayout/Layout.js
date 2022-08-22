@@ -57,7 +57,6 @@ const Layout = () => {
   return (
     <>
       <AppBar id="#">
-        <ToastContainer />
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Link to={"/"}>
             <Typography variant="h4" color={"white"}>

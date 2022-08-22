@@ -63,7 +63,8 @@ const navigate =  useNavigate()
   console.log(CSSFilter);
   return (
     <>
-    <Box maxWidth="lg" sx={{ mt: "5rem" }} className="page_container">
+    <Typography className="title_section" textAlign={'center'} mt={10} variant="h3">CSS Page</Typography>
+    <Box maxWidth="lg" sx={{ mt: "3rem" }} className="page_container">
       {CSSFilter &&
         CSSFilter.map((post) => (
           <Card className="grid_cards">
